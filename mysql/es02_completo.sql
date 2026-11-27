@@ -1,9 +1,6 @@
-CREATE DATABASE IF NOT EXISTS sensori;
-USE sensori;
 CREATE TABLE IF NOT EXISTS sensori (id_sensori INT AUTO_INCREMENT PRIMARY KEY,  conta_assi VARCHAR(50) NOT NULL,  eurobalise VARCHAR(50) NOT NULL,  rtb INT NOT NULL,  odometri VARCHAR(50) NOT NULL,  imu VARCHAR(50) NOT NULL,  temperatura DECIMAL(5, 2) NOT NULL,  pressione FLOAT NOT NULL,  visibilità VARCHAR(50) NOT NULL,  tempo_atmosferico VARCHAR(50) NOT NULL);
 CREATE TABLE IF NOT EXISTS allarmi (id_allarmi INT AUTO_INCREMENT PRIMARY KEY, anti_incendio BOOLEAN NOT NULL, luci_esterne VARCHAR(50) NOT NULL, luci_interne VARCHAR(50) NOT NULL, blackout BOOLEAN NOT NULL, velocità_eccessiva BOOLEAN NOT NULL);
 CREATE TABLE IF NOT EXISTS orario (id_orario INT AUTO_INCREMENT PRIMARY KEY, partenze DATETIME NOT NULL, arrivi DATETIME NOT NULL, ritardi TIME NOT NULL, stato VARCHAR(50) NOT NULL, id_sensori INT NOT NULL, id_allarmi INT NOT NULL, FOREIGN KEY (id_sensori) REFERENCES sensori(id_sensori), FOREIGN KEY (id_allarmi) REFERENCES allarmi(id_allarmi));
-SHOW TABLES;
 DESCRIBE sensori;
 DESCRIBE orario;
 DESCRIBE allarmi;
